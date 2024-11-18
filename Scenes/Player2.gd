@@ -14,10 +14,17 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
 onready var animation = $AnimatedSprite
 onready var aniPlayer = $AnimationPlayer
 onready var aniTree = $AnimationTree
 onready var aniState = aniTree.get("parameters/playback")
+
+enum {
+	MOVE,
+	ATK
+}
 
 const WALK_SPEED = 50
 const ACC = 10
@@ -25,7 +32,21 @@ const FRICTION = 10
 var velocity : Vector2 = Vector2()
 var direction : Vector2 = Vector2()
 
+var state = MOVE
 
+func check_move():
+	
+	if abs(velocity.x) + abs(velocity.y) > .2:
+		aniTree.set("parameters/run/blend_position", velocity)
+		aniState.travel("run")
+	else:
+		aniTree.set("parameters/idle/blend_position", direction)	
+		aniState.travel("idle")
+	aniTree.set("parameters/special/blend_position", velocity)
+	if Input.is_action_pressed("2spec"):
+		state = ATK
+		
+		
 func check_input(dtime):
 	var input_vector = Vector2.ZERO
 	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
@@ -41,26 +62,18 @@ func check_input(dtime):
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * dtime)
 	
 	move_and_collide(velocity)
-	var facing = ""
-	var moving = ""
-	
-	
-	
-	if Input.is_action_pressed("2spec"):
-		aniTree.set("parameters/special/blend_position", velocity)
-		aniState.travel("special")
-	elif abs(velocity.x) + abs(velocity.y) > .2:
-		aniTree.set("parameters/run/blend_position", velocity)
-		aniState.travel("run")
-	else:
-		aniTree.set("parameters/idle/blend_position", direction)	
-		aniState.travel("idle")
-
 	
 			
 func check_attack():
-	pass
+	aniState.travel("special")
+func atk_ani_finish():
+	state = MOVE
 	# "move_and_slide" already takes delta time into account.
 func _physics_process(delta):
 	check_input(delta)
+	match state:
+		MOVE:
+			check_move()
+		ATK:
+			check_attack()
 	

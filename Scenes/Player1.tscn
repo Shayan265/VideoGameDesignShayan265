@@ -1,4 +1,4 @@
-[gd_scene load_steps=101 format=2]
+[gd_scene load_steps=103 format=2]
 
 [ext_resource path="res://Scenes/Player1.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Lilypad.png" type="Texture" id=2]
@@ -390,14 +390,18 @@ blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=148]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=154]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=155]
+
 [sub_resource type="AnimationNodeStateMachine" id=149]
 states/idle/node = SubResource( 135 )
 states/idle/position = Vector2( 417, 92 )
 states/run/node = SubResource( 140 )
-states/run/position = Vector2( 590, 92 )
+states/run/position = Vector2( 602, 92 )
 states/special/node = SubResource( 146 )
-states/special/position = Vector2( 468, 156 )
-transitions = [ "idle", "run", SubResource( 147 ), "run", "idle", SubResource( 148 ) ]
+states/special/position = Vector2( 417, 198 )
+transitions = [ "idle", "run", SubResource( 147 ), "run", "idle", SubResource( 148 ), "idle", "special", SubResource( 154 ), "special", "idle", SubResource( 155 ) ]
 start_node = "idle"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=150]
@@ -792,7 +796,6 @@ tracks/2/keys = {
 [sub_resource type="Animation" id=151]
 resource_name = "special_"
 length = 1.1
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("PSprite:frame")
 tracks/0/interp = 1
@@ -841,11 +844,24 @@ tracks/3/keys = {
 "update": 1,
 "values": [ 47, 47, 46, 45, 44 ]
 }
+tracks/4/type = "method"
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 1.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "atk_ani_finish"
+} ]
+}
 
 [sub_resource type="Animation" id=129]
 resource_name = "special_down"
 length = 0.5
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("PSprite:frame")
 tracks/0/interp = 1
@@ -882,11 +898,24 @@ tracks/2/keys = {
 "update": 0,
 "values": [ false ]
 }
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "atk_ani_finish"
+} ]
+}
 
 [sub_resource type="Animation" id=152]
 resource_name = "special_left"
 length = 0.5
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("MSprite:frame")
 tracks/0/interp = 1
@@ -923,11 +952,24 @@ tracks/2/keys = {
 "update": 1,
 "values": [ true ]
 }
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "atk_ani_finish"
+} ]
+}
 
 [sub_resource type="Animation" id=130]
 resource_name = "special_right"
 length = 0.5
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("PSprite:frame")
 tracks/0/interp = 1
@@ -964,11 +1006,24 @@ tracks/2/keys = {
 "update": 0,
 "values": [ false ]
 }
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "atk_ani_finish"
+} ]
+}
 
 [sub_resource type="Animation" id=153]
 resource_name = "special_up"
 length = 0.5
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("PSprite:frame")
 tracks/0/interp = 1
@@ -1005,6 +1060,20 @@ tracks/2/keys = {
 "update": 0,
 "values": [ false ]
 }
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "atk_ani_finish"
+} ]
+}
 
 [node name="Player1" type="KinematicBody2D"]
 z_index = 1
@@ -1039,7 +1108,7 @@ anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 150 )
 parameters/idle/blend_position = Vector2( -0.00158477, 0 )
-parameters/run/blend_position = Vector2( 0.00158477, 0 )
+parameters/run/blend_position = Vector2( 0, 0 )
 parameters/special/blend_position = Vector2( -0.204437, 0.00862074 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
