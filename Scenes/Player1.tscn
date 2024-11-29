@@ -1,9 +1,10 @@
-[gd_scene load_steps=103 format=2]
+[gd_scene load_steps=104 format=2]
 
-[ext_resource path="res://Scenes/Player1.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Player1.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Lilypad.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Cute_Fantasy_Free/Player/Player.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Cute_Fantasy_Free/Player/MirrorPlayer.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/Hitbox.tscn" type="PackedScene" id=5]
 
 [sub_resource type="AtlasTexture" id=60]
 atlas = ExtResource( 3 )
@@ -456,6 +457,54 @@ tracks/3/keys = {
 "update": 0,
 "values": [ true ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("Hitbox:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 3, 3 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Hitbox:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Hitbox:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Hitbox/HitArea:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=121]
 resource_name = "idle_down"
@@ -796,6 +845,7 @@ tracks/2/keys = {
 [sub_resource type="Animation" id=151]
 resource_name = "special_"
 length = 1.1
+step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("PSprite:frame")
 tracks/0/interp = 1
@@ -858,10 +908,47 @@ tracks/4/keys = {
 "method": "atk_ani_finish"
 } ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("Hitbox:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = false
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.25, 0.35, 0.4, 0.45, 0.5, 0.65, 0.7, 0.75, 0.85, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -3, 3 ), Vector2( 0, 3 ), Vector2( 2, 3 ), Vector2( 3, 3 ), Vector2( 3, 3 ), Vector2( 0, 3 ), Vector2( -3, 3 ), Vector2( -3, 3 ), Vector2( -2, 3 ), Vector2( 2, 3 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Hitbox:rotation_degrees")
+tracks/6/interp = 1
+tracks/6/loop_wrap = false
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.25, 0.35, 0.4, 0.45, 0.5, 0.65, 0.699094, 0.75, 0.85, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 200.0, 90.0, 30.0, 0.0, 0.0, -90.0, -135.0, -135.0, -230.0, -330.0 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Hitbox/HitArea:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.25, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
 
 [sub_resource type="Animation" id=129]
 resource_name = "special_down"
 length = 0.5
+step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("PSprite:frame")
 tracks/0/interp = 1
@@ -912,10 +999,47 @@ tracks/3/keys = {
 "method": "atk_ani_finish"
 } ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("Hitbox:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = false
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.15, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -3, 3 ), Vector2( 3, 3 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Hitbox:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = false
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.15, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 180.0, 0.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Hitbox/HitArea:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
 
 [sub_resource type="Animation" id=152]
 resource_name = "special_left"
 length = 0.5
+step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("MSprite:frame")
 tracks/0/interp = 1
@@ -966,10 +1090,47 @@ tracks/3/keys = {
 "method": "atk_ani_finish"
 } ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("Hitbox:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = false
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.15, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -3, 2 ), Vector2( -2, 2 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Hitbox:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = false
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.15, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 220.0, 30.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Hitbox/HitArea:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.15, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
 
 [sub_resource type="Animation" id=130]
 resource_name = "special_right"
 length = 0.5
+step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("PSprite:frame")
 tracks/0/interp = 1
@@ -1020,10 +1181,47 @@ tracks/3/keys = {
 "method": "atk_ani_finish"
 } ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("Hitbox:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = false
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.15, 0.399094 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 3, 2 ), Vector2( 2, 2 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Hitbox:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = false
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.15, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -40.0, 150.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Hitbox/HitArea:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.15, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
 
 [sub_resource type="Animation" id=153]
 resource_name = "special_up"
 length = 0.5
+step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("PSprite:frame")
 tracks/0/interp = 1
@@ -1073,6 +1271,42 @@ tracks/3/keys = {
 "args": [  ],
 "method": "atk_ani_finish"
 } ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Hitbox:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = false
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.15, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 3, 3 ), Vector2( -3, 3 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Hitbox:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = false
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.15, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -180.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Hitbox/HitArea:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.15, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
 }
 
 [node name="Player1" type="KinematicBody2D"]
@@ -1140,3 +1374,8 @@ texture = ExtResource( 4 )
 hframes = 6
 vframes = 10
 frame = 11
+
+[node name="Hitbox" parent="." instance=ExtResource( 5 )]
+position = Vector2( 3, 3 )
+
+[editable path="Hitbox"]

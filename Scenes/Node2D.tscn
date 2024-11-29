@@ -1,4 +1,4 @@
-[gd_scene load_steps=127 format=2]
+[gd_scene load_steps=131 format=2]
 
 [ext_resource path="res://Assets/Cute_Fantasy_Free/Tiles/Water_Tile.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Cute_Fantasy_Free/Tiles/Water_Middle.png" type="Texture" id=2]
@@ -13,17 +13,21 @@
 [ext_resource path="res://Assets/Templates/template_OldPerson.png" type="Texture" id=11]
 [ext_resource path="res://Assets/m3x6.ttf" type="DynamicFontData" id=12]
 [ext_resource path="res://Assets/Cute_Fantasy_Free/Outdoor decoration/Chest.png" type="Texture" id=13]
-[ext_resource path="res://Scenes/Node2D.gd" type="Script" id=14]
+[ext_resource path="res://Scripts/Node2D.gd" type="Script" id=14]
 [ext_resource path="res://Scenes/Player2.gd" type="Script" id=15]
 [ext_resource path="res://Scenes/Player3.gd" type="Script" id=16]
 [ext_resource path="res://Scenes/Player1.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Assets/Cute_Fantasy_Free/Outdoor decoration/Fences.png" type="Texture" id=18]
-[ext_resource path="res://Scenes/Camera2D.gd" type="Script" id=19]
+[ext_resource path="res://Scripts/Camera2D.gd" type="Script" id=19]
 [ext_resource path="res://icon.png" type="Texture" id=20]
 [ext_resource path="res://Assets/Cute_Fantasy_Free/Tiles/FarmLand_Tile.png" type="Texture" id=21]
-[ext_resource path="res://Scenes/StartingText.gd" type="Script" id=22]
-[ext_resource path="res://Scenes/TileMapDecor.gd" type="Script" id=23]
+[ext_resource path="res://Scripts/StartingText.gd" type="Script" id=22]
+[ext_resource path="res://Scripts/TileMapDecor.gd" type="Script" id=23]
 [ext_resource path="res://Assets/8bit-water-texture-sq.png" type="Texture" id=24]
+[ext_resource path="res://Scenes/Hurtbox.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Scenes/Hitbox.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Scenes/Tree.tscn" type="PackedScene" id=27]
+[ext_resource path="res://Scenes/wood.tscn" type="PackedScene" id=28]
 
 [sub_resource type="ConvexPolygonShape2D" id=30]
 points = PoolVector2Array( 16, 16, 9.21201, 16, 10.4375, 10.5625, 16, 9.1471 )
@@ -2519,11 +2523,11 @@ cell_y_sort = true
 show_collision = true
 centered_textures = true
 format = 1
-tile_data = PoolIntArray( -7471125, 0, 0, -5504976, 1, 0, -5438912, 0, 0, -5111885, 0, 0, -4128696, 3, 0, -3997741, 0, 0, -3932242, 1, 0, -3997600, 3, 0, -3997142, 0, 0, -3670004, 0, 0, -3342262, 0, 0, -3145639, 0, 0, -2949303, 16, 0, -2883501, 0, 0, -2883340, 3, 0, -2686911, 3, 0, -2490460, 18, 0, -2424924, 0, 0, -2096563, 0, 0, -1834977, 16, 0, -1703877, 0, 0, -1245104, 3, 0, -785814, 25, 0, -131175, 16, 0, -130475, 25, 0, 130941, 3, 0, 131410, 16, 0, 590253, 18, 0, 590423, 25, 0, 655374, 15, 0, 655894, 14, 0, 786436, 14, 0, 851975, 1, 0, 917724, 16, 0, 918049, 0, 0, 1114143, 36, 0, 1245104, 11, 0, 1376198, 13, 0, 1310959, 4, 0, 1376534, 18, 0, 1442023, 3, 0, 1442333, 23, 0, 1638354, 18, 0, 1573390, 15, 0, 1704424, 6, 0, 1966294, 7, 0, 2228412, 39, 0, 2359384, 18, 0, 2490621, 12, 0, 2490669, 42, 0, 2752623, 0, 0, 2752777, 13, 0, 2818086, 36, 0, 2949538, 16, 0, 3080246, 16, 0, 3145733, 42, 0, 3146360, 23, 0, 3735565, 42, 0, 3932203, 8, 0, 3997781, 4, 0, 3997786, 5, 0, 4128686, 0, 0, 4063286, 9, 0, 4194345, 13, 0, 4325596, 11, 0, 4521931, 3, 0, 4522486, 0, 0, 4588109, 0, 0, 5242796, 11, 0, 5701642, 16, 0, 6029918, 16, 0, 6160420, 11, 0, 6160653, 11, 0, 6226311, 1, 0, 6357041, 16, 0, 6619407, 2, 0, 6684937, 1, 0, 7143974, 16, 0, 7340514, 6, 0, 8716268, 5, 0, 8847304, 0, 0, 8978446, 11, 0, 9174910, 0, 0, 9306138, 0, 0, 9633811, 2, 0, 9634323, 3, 0, 9699339, 0, 0, 9896428, 12, 0, 9962086, 0, 0, 10158575, 13, 0, 11010500, 16, 0, 11337602, 3, 0, 11665826, 3, 0, 11666053, 13, 0, 11993677, 16, 0, 12320686, 18, 0, 12911111, 16, 0, 13172625, 13, 0, 14483937, 0, 0, 14614407, 0, 0, 14615088, 9, 0, 14942127, 0, 0, 15007554, 36, 0, 15073686, 36, 0, 15204249, 5, 0, 15663686, 0, 0, 16581044, 0, 0, 16711497, 36, 0, 16777629, 36, 0, 16843289, 3, 0, 16973657, 16, 0, 17104826, 0, 0, 17039789, 16, 0, 17891746, 8, 0, 18022829, 9, 0, 18153888, 13, 0, 20119963, 11, 0, 20316584, 16, 0, 22151088, 16, 0, 22347628, 6, 0, 23593496, 16, 0, 24052339, 18, 0, 24641437, 3, 0, 24903542, 12, 0, 24969200, 0, 0, 25165689, 13, 0, 26017614, 16, 0, 26411624, 16, 0, 26672940, 3, 0, 26607631, 13, 0, 27000791, 16, 0, 27918225, 16, 0, 27853341, 36, 0, 28311951, 0, 0, 29491051, 0, 0, 29622202, 9, 0, 30278039, 25, 0, 30539924, 16, 0, 30670800, 0, 0, 30998767, 18, 0, 30998937, 25, 0, 31064408, 14, 0, 31326563, 0, 0, 31588158, 0, 0, 31850403, 3, 0, 31850847, 23, 0, 31981904, 15, 0, 32112938, 6, 0, 32899618, 11, 0, 33096239, 16, 0, 33358052, 16, 0 )
+tile_data = PoolIntArray( -7471125, 0, 0, -5504976, 1, 0, -5438912, 0, 0, -5111885, 0, 0, -4128696, 3, 0, -3997741, 0, 0, -3932242, 1, 0, -3997600, 3, 0, -3997142, 0, 0, -3670004, 0, 0, -3342262, 0, 0, -3145639, 0, 0, -2883501, 0, 0, -2883340, 3, 0, -2686911, 3, 0, -2490460, 18, 0, -2424924, 0, 0, -2096563, 0, 0, -1703877, 0, 0, -1245104, 3, 0, -785814, 25, 0, -130475, 25, 0, 130941, 3, 0, 590253, 18, 0, 590423, 25, 0, 655374, 15, 0, 655894, 14, 0, 786436, 14, 0, 851975, 1, 0, 918049, 0, 0, 1114143, 36, 0, 1245104, 11, 0, 1376198, 13, 0, 1310959, 4, 0, 1376534, 18, 0, 1442023, 3, 0, 1442333, 23, 0, 1638354, 18, 0, 1573390, 15, 0, 1704424, 6, 0, 1966294, 7, 0, 2228412, 39, 0, 2359384, 18, 0, 2490621, 12, 0, 2490669, 42, 0, 2752623, 0, 0, 2752777, 13, 0, 2818086, 36, 0, 3080246, 16, 0, 3145733, 42, 0, 3146360, 23, 0, 3735565, 42, 0, 3932203, 8, 0, 3997781, 4, 0, 3997786, 5, 0, 4128686, 0, 0, 4063286, 9, 0, 4194345, 13, 0, 4325596, 11, 0, 4521931, 3, 0, 4522486, 0, 0, 4588109, 0, 0, 5242796, 11, 0, 6029918, 16, 0, 6160420, 11, 0, 6160653, 11, 0, 6226311, 1, 0, 6619407, 2, 0, 6684937, 1, 0, 7143974, 16, 0, 7340514, 6, 0, 8716268, 5, 0, 8847304, 0, 0, 8978446, 11, 0, 9174910, 0, 0, 9306138, 0, 0, 9633811, 2, 0, 9634323, 3, 0, 9699339, 0, 0, 9896428, 12, 0, 9962086, 0, 0, 10158575, 13, 0, 11010500, 16, 0, 11337602, 3, 0, 11665826, 3, 0, 11666053, 13, 0, 11993677, 16, 0, 12320686, 18, 0, 12911111, 16, 0, 13172625, 13, 0, 14483937, 0, 0, 14614407, 0, 0, 14615088, 9, 0, 14942127, 0, 0, 15007554, 36, 0, 15073686, 36, 0, 15204249, 5, 0, 15663686, 0, 0, 16581044, 0, 0, 16711497, 36, 0, 16777629, 36, 0, 16843289, 3, 0, 16973657, 16, 0, 17104826, 0, 0, 17039789, 16, 0, 17891746, 8, 0, 18022829, 9, 0, 18153888, 13, 0, 20119963, 11, 0, 20316584, 16, 0, 22151088, 16, 0, 22347628, 6, 0, 23593496, 16, 0, 24052339, 18, 0, 24641437, 3, 0, 24903542, 12, 0, 24969200, 0, 0, 25165689, 13, 0, 26017614, 16, 0, 26411624, 16, 0, 26672940, 3, 0, 26607631, 13, 0, 27000791, 16, 0, 27918225, 16, 0, 27853341, 36, 0, 28311951, 0, 0, 29491051, 0, 0, 29622202, 9, 0, 30278039, 25, 0, 30539924, 16, 0, 30670800, 0, 0, 30998767, 18, 0, 30998937, 25, 0, 31064408, 14, 0, 31326563, 0, 0, 31588158, 0, 0, 31850403, 3, 0, 31850847, 23, 0, 31981904, 15, 0, 32112938, 6, 0, 32899618, 11, 0, 33096239, 16, 0, 33358052, 16, 0 )
 script = ExtResource( 23 )
 
 [node name="Player1" parent="." instance=ExtResource( 17 )]
-position = Vector2( 116, -42 )
+position = Vector2( 153, -29 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -2627,5 +2631,61 @@ texture = ExtResource( 24 )
 [node name="AnimationTree" parent="Player3" index="4"]
 parameters/playback = SubResource( 161 )
 
+[node name="Hitbox" parent="." instance=ExtResource( 26 )]
+
+[node name="Hurtbox" parent="." instance=ExtResource( 25 )]
+
+[node name="wood" parent="." instance=ExtResource( 28 )]
+position = Vector2( 195, -42 )
+
+[node name="Forest" type="YSort" parent="."]
+z_as_relative = false
+
+[node name="Tree" parent="Forest" instance=ExtResource( 27 )]
+position = Vector2( 103, -86 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Tree2" parent="Forest" instance=ExtResource( 27 )]
+position = Vector2( 147, -60 )
+
+[node name="Tree3" parent="Forest" instance=ExtResource( 27 )]
+position = Vector2( 181, -88 )
+
+[node name="Tree4" parent="Forest" instance=ExtResource( 27 )]
+position = Vector2( 148, -100 )
+
+[node name="Tree5" parent="Forest" instance=ExtResource( 27 )]
+position = Vector2( 308, -41 )
+
+[node name="Tree6" parent="Forest" instance=ExtResource( 27 )]
+position = Vector2( 420, 41 )
+
+[node name="Tree7" parent="Forest" instance=ExtResource( 27 )]
+position = Vector2( 52, 85 )
+
+[node name="Tree8" parent="Forest" instance=ExtResource( 27 )]
+position = Vector2( 7, 75 )
+
+[node name="Tree9" parent="Forest" instance=ExtResource( 27 )]
+position = Vector2( -86, -15 )
+
+[node name="Tree10" parent="Forest" instance=ExtResource( 27 )]
+position = Vector2( 668, -39 )
+
+[node name="Tree11" parent="Forest" instance=ExtResource( 27 )]
+position = Vector2( 159, -51 )
+
+[node name="Tree12" parent="Forest" instance=ExtResource( 27 )]
+position = Vector2( 206, 3 )
+
+[node name="Tree13" parent="Forest" instance=ExtResource( 27 )]
+position = Vector2( 39, -12 )
+
 [editable path="Player2"]
+[editable path="Player2/Hitbox"]
 [editable path="Player3"]
+[editable path="Player3/Hitbox"]
+[editable path="Forest/Tree"]
+[editable path="Forest/Tree/Hurtbox"]

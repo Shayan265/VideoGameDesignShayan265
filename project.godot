@@ -122,6 +122,13 @@ Q={
  ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="World"
+2d_physics/layer_2="Camera"
+2d_physics/layer_4="Player"
+2d_physics/layer_5="Wildlife(Trees, etc)"
+
 [physics]
 
 common/enable_pause_aware_picking=true
